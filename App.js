@@ -1,15 +1,14 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-/*import BodyText from './src/elements/BodyText';*/
 import Appbar from './src/components/Appbar';
-import MemoList from './src/components/MemoList';
-import CricleButton from './src/elements/CricleButton.js';
+import MemoDetailScreen from './src/screens/MemoDetailScreen';
+
+
 export default function App() {
   return (
     <View style={styles.container}>
       <Appbar />
-      <MemoList />
-      <CricleButton>+</CricleButton>
+      <MemoDetailScreen />
     </View>
   );
 }
@@ -20,7 +19,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFDF6',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop:78,
+    paddingTop: 78,
   },
 
 
