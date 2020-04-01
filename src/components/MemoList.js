@@ -1,9 +1,9 @@
 import React from 'react';
-import { StyleSheet, View, Text} from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 class MemoList extends React.Component {
-  render(){
-    return(
+  render() {
+    return (
 
       <View style={styles.memoList}>
         <View style={styles.memoListItem}>
@@ -32,23 +32,23 @@ class MemoList extends React.Component {
   }
 }
 const styles = StyleSheet.create({
-  memoList:{
-    width:'100%',
-    flex:1,
+  memoList: {
+    width: '100%',
+    flex: 1,
   },
-  memoListItem:{
-    padding:16,
-    borderBottomWidth:1,
-    borderBottomColor:'#ddd',
-    backgroundColor:'#fff',
+  memoListItem: {
+    padding: 16,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+    backgroundColor: '#fff',
   },
   memoTitle: {
-    fontSize:18,
-    marginBottom:4,
+    fontSize: 18,
+    marginBottom: 4,
   },
   memoDate: {
     fontSize: 12,
-    color:'#a2a2a2',
+    color: '#a2a2a2',
   },
 });
 
