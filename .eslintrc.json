@@ -20,7 +20,8 @@
     "react/state-in-constructor":0,
     "react/no-deprecated":0,
     "key-spacing":0,
-    "object-curly-newline":0
+    "object-curly-newline":0,
+    "react/jsx-no-bind":0
   },
   "parser":"babel-eslint"
 }
