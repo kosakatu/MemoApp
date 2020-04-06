@@ -11,9 +11,10 @@ class MemoCreateScreen extends React.Component {
   }
 
   handlePress() {
-    const { params } = this.props.navigation.state;
+    // const { params } = this.props.navigation.state;
     const db = firebase.firestore();
-    db.collection(`users/${params.currentUser.user.uid}/memos`).add({
+    const { currentUser } = firebase.auth();
+    db.collection(`users/${currentUser.uid}/memos`).add({
       body: this.state.body,
       createdOn: new Date(),
     })
@@ -30,8 +31,7 @@ class MemoCreateScreen extends React.Component {
       <View style={styles.container}>
         <TextInput
           style={styles.memoEditInput}
-          mmultiline
-          value={this.state.body}
+          mmultiline value={this.state.body}
           onChangeText={(text) => { this.setState({ body: text }); }}
         />
         <CircleButton name="check" onPress={this.handlePress.bind(this)} />
@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   memoEditInput: {
     backgroundColor: '#fff',
     flex: 1,
-    paddingTop: 32,
+    paddingTop: 16,
     paddingLeft: 16,
     paddingRight: 16,
     paddingBottom: 16,
