@@ -24,7 +24,8 @@
     "react/jsx-no-bind":0,
     "no-undef": 0,
     "no-console": 0,
-    "react/jsx-max-props-per-line": 0
+    "react/jsx-max-props-per-line": 0,
+    "max-len": 0
   },
   "parser":"babel-eslint"
 }

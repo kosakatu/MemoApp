@@ -2,6 +2,12 @@ import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import CircleButton from '../elements/CircleButton';
 
+
+const dateString = (date) => {
+  const str = (date.toDate().toISOString());
+  return str.split('T')[0];
+};
+
 class MemoDetailScreen extends React.Component {
   state = {
     memo: {},
@@ -12,19 +18,16 @@ class MemoDetailScreen extends React.Component {
     this.setState({ memo:params.memo });
   }
 
-  dateString(date) {
-    console.log(date.toISOString());
-  }
-
   render() {
     const { memo } = this.state;
+    const { body, createdOn } = memo;
     return (
       <View style={styles.container}>
         <View>
           <View style={styles.memoHeader}>
             <View>
-              <Text style={styles.memoHeaderTitle}>{memo.body ? memo.body.substring(0, 10) : ''}</Text>
-              <Text style={styles.memoHeaderDate}>{this.dateString(memo.createdOn)}</Text>
+              <Text style={styles.memoHeaderTitle}>{body ? body.substring(0, 10) : ''}</Text>
+              {createdOn && <Text style={styles.memoHeaderDate}>{dateString(memo.createdOn)}</Text>}
             </View>
           </View>
         </View>
@@ -35,7 +38,12 @@ class MemoDetailScreen extends React.Component {
           </Text>
         </View>
 
-        <CircleButton name="pencil" color="white" style={styles.editButton} onPress={() => { this.props.navigation.navigate('MemoEdit'); }} />
+        <CircleButton
+          name="pencil"
+          color="white"
+          style={styles.editButton}
+          onPress={() => { this.props.navigation.navigate('MemoEdit', { memo }); }}
+        />
       </View>
     );
   }
